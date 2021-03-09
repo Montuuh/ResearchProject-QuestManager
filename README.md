@@ -1,29 +1,19 @@
 # Presentation 
 
+Hello! My name is [David Montufo](https://github.com/Montuuh), a student from the Bachelor's degree in Design and Development of Videogames in CITM. I decided to do this project as it has been demanded by the subject Project 2, lectured by [David Montufo](https://github.com/raysan5).
+
 ## Research Description
 
 {project description}
 
-## Key Features
+### Index
 
- - {Feature01}
- - {Feature02}
- - {Feature03}
- - {Feature04}
- 
-## Controls
+## Introduction
 
- - {ControlsScheme}
+## Code structure
 
-## Developers
+## Complete implementation
 
- - {Dev01} - {Role(s)}
- - {Dev02} - {Role(s)}
- - {Dev03} - {Role(s)}
- - {Dev04} - {Role(s)}
+## ToDo list
 
-## License
-
-This project is licensed under an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. Check [LICENSE](LICENSE) for further details.
-
-{AdditionalLicenses}
+## Webgraphy && Credits
