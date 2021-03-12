@@ -1,31 +1,34 @@
 # Presentation
 
+
 # Research Project Description
+
 
 # What are quests and which type of quests should we have in our RPG turn-based games
 
+
 # Pseudocode of each type of quest (talk with class)
+
 
 # Quest System Structure
 
+
 # Complete implementation
+
 
 # Quest chains?
 
+
 # ToDo List
+
 
 # Code Style and Conventions
 
+
 # Webgraphy
 
+
 # Help & Support (delete when delivery, only for me as Markdown)
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/Montuuh/ResearchProject-QuestManager/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
 Syntax highlighted code block
