@@ -63,11 +63,11 @@ void SomeFunction()
  
 ## Files and Directories Naming Conventions
  
-  - Directories will be named using `TitleCase` : `Assets/Audio/Music`
+ - Directories will be named using `TitleCase` : `Assets/Audio/Music`
   
-  - Files will be named using `snake_case`: `main_title.png`
+ - Files will be named using `snake_case`: `main_title.png`
   
-  _NOTE: Avoid any space or special character in the files/dir naming!_
+_NOTE: Avoid any space or special character in the files/dir naming!_
   
 ### Directories Organization:
   
