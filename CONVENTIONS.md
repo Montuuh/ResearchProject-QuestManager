@@ -1,6 +1,6 @@
 ## C++ Coding Style Conventions
 
-Here it is a list with some of the conventions used in this project template:
+Here it is a list with some of the conventions used in this research:
 
 Code element | Convention | Example
 --- | :---: | ---
@@ -26,7 +26,7 @@ Class Fields | lowerCase | `Vector2 position`
 Class Methods | TitleCase | `GetPosition()`
 Ternary Operator | (condition)? result1 : result2 | `printf("Value is 0: %s", (value == 0)? "yes" : "no");`
 
- - Project uses aligned braces or curly brackets:
+ - Research uses aligned braces or curly brackets:
 ```c
 void SomeFunction()
 {
@@ -34,7 +34,7 @@ void SomeFunction()
 }
 ```
 
- - Project uses **TABS** instead of 4 spaces.
+ - Research uses **TABS** instead of 4 spaces.
 
  - Trailing spaces MUST be avoided!
  
