@@ -60,7 +60,7 @@ void SomeFunction()
  - Research uses **TABS** instead of 4 spaces.
 
  - Trailing spaces MUST be avoided!
- 
+
 ## Files and Directories Naming Conventions
  
  - Directories will be named using `TitleCase` : `Assets/Audio/Music`
@@ -68,7 +68,7 @@ void SomeFunction()
  - Files will be named using `snake_case`: `main_title.png`
   
 _NOTE: Avoid any space or special character in the files/dir naming!_
-  
+
 ### Directories Organization:
   
 Files should be organized by context and usage in the game, think about the loading requirements and put all the assets that need to be loaded at the same time together.
