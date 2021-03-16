@@ -32,7 +32,7 @@ bool Scene::Awake()
 bool Scene::Start()
 {
 	app->map->Load("map.tmx");
-	//app->map->LoadColliders();
+	app->map->LoadColliders();
 
 	return true;
 }
@@ -57,7 +57,6 @@ bool Scene::Update(float dt)
 
 	if(app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += 1;
-
 
 	return true;
 }

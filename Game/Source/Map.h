@@ -116,6 +116,7 @@ public:
 
 	MapData data;
 	MapTypes StrToMapType(SString s);
+
 private:
 
 	bool LoadMap();
@@ -131,6 +132,7 @@ private:
 	pugi::xml_document mapFile;
 	SString folder;
 	bool mapLoaded;
+
 
 };
 #endif

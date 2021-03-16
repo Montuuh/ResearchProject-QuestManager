@@ -414,57 +414,71 @@ bool Map::LoadProperties(pugi::xml_node& node, Properties& properties)
 
 int Map::LoadColliders()
 {
-	//ListItem<MapLayer*>* L;
-	//L = data.layers.start;
-	//SString colliderTilesetName("colliders");
-	//while (L != NULL)
+	SString colliderTilesetName("meta");
+
+	
+	//ListItem<TileSet*>* L2;
+	//L2 = data.tilesets.start;
+	//while (L2 != NULL)
 	//{
-	//	SString name = L->data->name;
+	//	SString name = L2->data->name;
 	//	if (name == colliderTilesetName)
 	//	{
 	//		break;
 	//	}
-	//	L = L->next;
+	//	L2 = L2->next;
 	//}
 
-	//TileSet* tileset = NULL;
-	//for (int j = 0; j < data.height; ++j)
-	//{
-	//	for (int i = 0; i < data.width; ++i)
-	//	{
-	//		int tileId = L->data->Get(i, j);
-	//		if (tileId > 0)
-	//		{
-	//			iPoint pos = MapToWorld(i, j);
-	//			SDL_Rect r =
-	//			{
-	//				pos.x,
-	//				pos.y,
-	//				data.tileWidth,
-	//				data.tileHeight
-	//			};
-	//			tileset = GetTilesetFromTileId(tileId);
-	//			int relativeId = tileset->GetTileRelativeId(tileId);
+	ListItem<MapLayer*>* L;
+	L = data.layers.start;
+	while (L != NULL)
+	{
+		SString name = L->data->name;
+		if (name == colliderTilesetName)
+		{
+			break;
+		}
+		L = L->next;
+	}
 
-	//			switch (relativeId)
-	//			{
-	//			case 0: // Void --> Do nothing
-	//				break;
-	//			case 1: // Red color --> Block
-	//				// app->collisions->AddCollider(r, Collider::Type::GROUND, nullptr);
-	//				break;
-	//			case 2: // Blue color --> 
-	//				break;
-	//			case 3: // Green color --> 
-	//				break;
-	//			case 4: // Black blue color --> 
-	//				break;
-	//			case 5: // Orange color --> 
-	//				break;
-	//			}
-	//		}
-	//	}
-	//}
+	TileSet* tileset = NULL;
+	for (int j = 0; j < data.height; ++j)
+	{
+		for (int i = 0; i < data.width; ++i)
+		{
+			int tileId = L->data->Get(i, j);
+			if (tileId > 0)
+			{
+				iPoint pos = MapToWorld(i, j);
+				SDL_Rect r =
+				{
+					pos.x,
+					pos.y,
+					data.tileWidth,
+					data.tileHeight
+				};
+				tileset = GetTilesetFromTileId(tileId);
+				int relativeId = tileset->GetTileRelativeId(tileId);
+
+				switch (relativeId)
+				{
+				case 0: // Void --> Do nothing
+					break;
+				case 1: // Red color --> Block
+					// app->collisions->AddCollider(r, Collider::Type::BLOCK, nullptr);
+					break;
+				case 2: // Blue color --> 
+					break;
+				case 3: // Green color --> 
+					break;
+				case 4: // Black blue color --> 
+					break;
+				case 5: // Orange color --> 
+					break;
+				}
+			}
+		}
+	}
 
 	return true;
 }
