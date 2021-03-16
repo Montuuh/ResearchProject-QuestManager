@@ -2,7 +2,7 @@
 <!-- L01: DONE 1: Create configuration file-->
 <config>
   <app>
-    <title>Game Development Testbed</title>
+    <title>Research Project - Quest Manager</title>
     <organization>UPC</organization>
   </app>
 
@@ -11,10 +11,15 @@
   </renderer>
 
   <window>
-    <resolution width="1280" height="720" scale="1"/>
+    <resolution width="1280" height="992" scale="1"/>
     <fullscreen value="false"/>
     <borderless value="false"/>
     <resizable value="false"/>
     <fullscreen_window value="false"/>
   </window>
+  
+  <map>
+    <folder>Assets/Maps/</folder>
+  </map>
+  
 </config>
