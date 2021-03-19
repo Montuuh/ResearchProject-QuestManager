@@ -4,22 +4,19 @@
 # Research Project Description
 
 
-# What are quests and which type of quests should we have in our RPG turn-based games
-
-
-# Pseudocode of each type of quest (talk with class)
-
-
-# Quest System Structure
+# Concept Discoveries about quests, missions and code structure:
 
 
 # Complete implementation
 
 
-# Quest chains?
+# Quest System Testing by a small game environment
 
 
-# ToDo List
+# Handout for your own practice
+
+
+# Possible Improvements and better solutions
 
 
 # Code Style and Conventions
