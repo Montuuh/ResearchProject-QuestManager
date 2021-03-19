@@ -1,5 +1,6 @@
 # Introduction
-
+This is a research on a Quest System, with an educational matter and learn how can it be implemented to the [big project](https://github.com/WillyTrek19/Project-19-2000), a 2D turn-based RPG, for the Project II subject at the  Bachelor's degree in Video Game Design and Development in CITM.
+The research consists of a concept discovery and implementation of a Quest Manager and a basic game environment to test it graphically.
 # Research Description
 
 {project description}
