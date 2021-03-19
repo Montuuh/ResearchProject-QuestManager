@@ -8,12 +8,6 @@ Hello! My name is [David Montufo](https://github.com/Montuuh), a student from th
 
 {project description}
 
-### Index
+## About Author
 
-## Code structure
-
-## Complete implementation
-
-## ToDo list
-
-## Webgraphy && Credits
+## Relevant Links
