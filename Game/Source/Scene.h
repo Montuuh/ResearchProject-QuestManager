@@ -33,7 +33,8 @@ public:
 	bool CleanUp();
 
 private:
-	SDL_Texture* img;
+	SDL_Texture* coinTex;
+	SDL_Rect coinRect;
 };
 
 #endif // __SCENE_H__

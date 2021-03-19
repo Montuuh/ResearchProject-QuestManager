@@ -34,6 +34,21 @@
     <ClCompile Include="Source\Map.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ModuleCollisions.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModulePlayer.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EntityManager.cpp">
+      <Filter>Core\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Entity.cpp">
+      <Filter>Core\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ItemMushroom.cpp">
+      <Filter>Core\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Defs.h">
@@ -90,6 +105,24 @@
     <ClInclude Include="Source\Map.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ModuleCollisions.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ModulePlayer.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Animation.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EntityManager.h">
+      <Filter>Core\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Entity.h">
+      <Filter>Core\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ItemMushroom.h">
+      <Filter>Core\Entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -103,6 +136,9 @@
     </Filter>
     <Filter Include="Core">
       <UniqueIdentifier>{a08f3dbd-ad40-450f-a4ca-7d3bb4ec1e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Entities">
+      <UniqueIdentifier>{bf66acf7-83be-4dff-9524-0aca1c31336f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

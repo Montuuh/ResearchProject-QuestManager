@@ -14,6 +14,9 @@ class Textures;
 class Audio;
 class Scene;
 class Map;
+class ModuleCollisions;
+class ModulePlayer;
+class Entities;
 
 class App
 {
@@ -76,6 +79,9 @@ public:
 	Audio* audio;
 	Scene* scene;
 	Map* map;
+	ModuleCollisions* collisions;
+	ModulePlayer* player;
+	Entities* entities;
 
 private:
 

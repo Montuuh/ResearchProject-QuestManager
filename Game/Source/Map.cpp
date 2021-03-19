@@ -2,11 +2,14 @@
 #include "Render.h"
 #include "Textures.h"
 #include "Map.h"
+#include "ModuleCollisions.h"
 
 #include "Defs.h"
 #include "Log.h"
 
 #include <math.h>
+
+struct Collider;
 
 Map::Map() : Module()
 {
@@ -416,19 +419,6 @@ int Map::LoadColliders()
 {
 	SString colliderTilesetName("meta");
 
-	
-	//ListItem<TileSet*>* L2;
-	//L2 = data.tilesets.start;
-	//while (L2 != NULL)
-	//{
-	//	SString name = L2->data->name;
-	//	if (name == colliderTilesetName)
-	//	{
-	//		break;
-	//	}
-	//	L2 = L2->next;
-	//}
-
 	ListItem<MapLayer*>* L;
 	L = data.layers.start;
 	while (L != NULL)
@@ -465,7 +455,11 @@ int Map::LoadColliders()
 				case 0: // Void --> Do nothing
 					break;
 				case 1: // Red color --> Block
-					// app->collisions->AddCollider(r, Collider::Type::BLOCK, nullptr);
+					r.x += 11;
+					r.w -= 22;
+					r.y += 11;
+					r.h -= 22;
+					app->collisions->AddCollider(r, Collider::Type::BLOCK, nullptr);
 					break;
 				case 2: // Blue color --> 
 					break;
