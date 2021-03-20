@@ -17,6 +17,7 @@ class Map;
 class ModuleCollisions;
 class ModulePlayer;
 class Entities;
+class QuestManager;
 
 class App
 {
@@ -82,6 +83,7 @@ public:
 	ModuleCollisions* collisions;
 	ModulePlayer* player;
 	Entities* entities;
+	QuestManager* quests;
 
 private:
 

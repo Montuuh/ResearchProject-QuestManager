@@ -2,9 +2,8 @@
 #define __RENDER_H__
 
 #include "Module.h"
-
 #include "Point.h"
-
+#include "Font.h"
 #include "SDL/include/SDL.h"
 
 class Render : public Module
@@ -41,6 +40,9 @@ public:
 
 	// Set background color
 	void SetBackgroundColor(SDL_Color color);
+
+	bool DrawText(Font* font, const char* text, int x, int y, int size, int spacing, SDL_Color tint);
+	//bool DrawTextNumber(Font* font, const char* text, int x, int y, int size, int spacing, SDL_Color tint);
 
 public:
 

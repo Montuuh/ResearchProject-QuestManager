@@ -9,6 +9,7 @@
 #include "Audio.h"
 #include "Window.h"
 #include "Map.h"
+#include "QuestManager.h"
 
 #include "Log.h"
 
@@ -302,6 +303,7 @@ bool ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			{
 				previousCollision = c2;
 				c2->listener->OnCollision(c2, c1);
+				mushroomCount++;
 				break;
 			}
 		//case Collider::Items::DIAMOND:
@@ -329,5 +331,17 @@ bool ModulePlayer::CleanUp()
 {
 	app->tex->UnLoad(characterTexture);
 
+	return true;
+}
+
+bool ModulePlayer::RewardXP(int rewardXP)
+{
+	xp += rewardXP;
+	return true;
+}
+
+bool ModulePlayer::RewardGold(int rewardGold)
+{
+	gold += rewardGold;
 	return true;
 }

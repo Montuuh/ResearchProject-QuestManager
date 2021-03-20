@@ -43,6 +43,9 @@ public:
 
 	bool CheckCollisions(float dt);
 
+	bool RewardXP(int rewardXP);
+	bool RewardGold(int rewardGold);
+
 public:
 	Animation* currentAnimation = nullptr;
 	Animation idleLeftAnim;
@@ -66,6 +69,9 @@ public:
 	SDL_Texture** currentTexture = nullptr;
 
 	bool collisionExist = false;
+	int xp = 0;
+	int gold = 0;
+	int mushroomCount = 0;
 
 private:
 	void Input(float dt);

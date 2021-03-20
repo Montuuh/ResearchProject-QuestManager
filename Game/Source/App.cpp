@@ -9,6 +9,7 @@
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
 #include "EntityManager.h"
+#include "QuestManager.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -31,6 +32,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	collisions = new ModuleCollisions(true);
 	player = new ModulePlayer(true);
 	entities = new Entities(true);
+	quests = new QuestManager();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -43,6 +45,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(collisions);
 	AddModule(entities);
 	AddModule(player);
+	AddModule(quests);
 
 
 	// Render last to swap buffer

@@ -8,9 +8,16 @@
 #include "Map.h"
 #include "EntityManager.h"
 #include "Animation.h"
+#include "Font.h"
+#include "QuestManager.h"
+#include "ModulePlayer.h"
 
 #include "Defs.h"
 #include "Log.h"
+
+#include <string>
+#include <iostream>
+using namespace std;
 
 Scene::Scene() : Module()
 {
@@ -40,6 +47,8 @@ bool Scene::Start()
 
 	coinTex = app->tex->Load("Assets/Textures/spritesheet.png");
 	coinRect = { 134,21,30,30 };
+
+	font = new Font("Assets/Fonts/dungeon_font3.xml", app->tex);
 
 	app->entities->AddEntity(EntityType::ITEM_MUSHROOM, 26 * 32 + 9, 11 * 32 + 10);
 	app->entities->AddEntity(EntityType::ITEM_MUSHROOM, 25 * 32 + 9, 13 * 32 + 10);
@@ -85,6 +94,18 @@ bool Scene::PostUpdate()
 
 	app->map->Draw();
 	app->render->DrawTexture(coinTex, 3, 3, &coinRect);
+
+	// Gold HUD
+	string s = to_string(app->player->gold);
+	const char* s2 = s.c_str();
+	app->render->DrawText(font, s2, 54, -8, 60, 0, { 255,255,255,200 });
+	
+	// XP HUD
+	app->render->DrawText(font, "XP", 0, 20, 60, 0, { 249,215,28,255 });
+	s = to_string(app->player->xp);
+	s2 = s.c_str();
+	app->render->DrawText(font, s2, 54, 20, 60, 0, { 255,255,255,200 });
+
 	return ret;
 }
 

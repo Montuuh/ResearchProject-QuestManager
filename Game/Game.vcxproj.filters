@@ -49,6 +49,10 @@
     <ClCompile Include="Source\ItemMushroom.cpp">
       <Filter>Core\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="Source\QuestManager.cpp" />
+    <ClCompile Include="Source\Font.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Defs.h">
@@ -122,6 +126,10 @@
     </ClInclude>
     <ClInclude Include="Source\ItemMushroom.h">
       <Filter>Core\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\QuestManager.h" />
+    <ClInclude Include="Source\Font.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

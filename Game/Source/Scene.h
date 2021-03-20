@@ -4,6 +4,7 @@
 #include "Module.h"
 
 struct SDL_Texture;
+class Font;
 
 class Scene : public Module
 {
@@ -35,6 +36,8 @@ public:
 private:
 	SDL_Texture* coinTex;
 	SDL_Rect coinRect;
+
+	Font* font;
 };
 
 #endif // __SCENE_H__
