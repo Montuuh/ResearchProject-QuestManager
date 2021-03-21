@@ -94,7 +94,6 @@ bool QuestManager::PostUpdate()
 	return true;
 }
 
-
 bool QuestManager::CleanUp()
 {
 	questsList.Clear();
@@ -103,21 +102,6 @@ bool QuestManager::CleanUp()
 	questsFinished.Clear();
 
 	return true;
-}
-
-
-
-pugi::xml_node QuestManager::LoadQuestData(pugi::xml_document questData)
-{
-	pugi::xml_node ret;
-
-	pugi::xml_parse_result parseResult = questData.load_file("quests.xml");
-	if (parseResult == NULL)
-		LOG("Could not load xml file <quests.xml> pugi error: %s", parseResult.description());
-	else
-		ret = questData.child("quests");
-
-	return ret;
 }
 
 bool QuestManager::DrawActiveQuests()
@@ -285,7 +269,7 @@ bool QuestManager::CheckObjectivesCompletion()
 		ListItem<Entity*>* L;
 		switch (debugId)
 		{
-		case 1:
+		case 1: // Quest 1
 			app->player->mushroomCount = 8;
 			L = app->entities->entities.start;
 			while (L != NULL)
@@ -296,7 +280,7 @@ bool QuestManager::CheckObjectivesCompletion()
 			}
 			++debugId;
 			break;
-		case 2:
+		case 2: // Quest 2
 			app->player->chopTreeCount = 10;
 			L = app->entities->entities.start;
 			while (L != NULL)

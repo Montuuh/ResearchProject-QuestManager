@@ -56,9 +56,6 @@ public:
 
 	bool DrawActiveQuests();
 
-
-	pugi::xml_node LoadQuestData(pugi::xml_document questData);
-
 public:
 
 	List<Quest*> questsList;
