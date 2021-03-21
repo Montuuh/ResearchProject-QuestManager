@@ -1,10 +1,20 @@
-# Presentation
+# Presentation & Research Project Description
+Hello, my name is David Montufo, [Montuuh](https://github.com/Montuuh) on github. I'm a student, now at the second year, at the Bachelor's degree in Video Game Design and Development in CITM (UPC - Barcelona). This is a personal research project about a basic Quest Manager, under the lecture of Ramón Santamaría, [raysan5](https://github.com/raysan5) on github.
 
-
-# Research Project Description
-
+Before starting to show you raw code, I firstly want to show you some basic concept ideas of quests, or maybe some questions or doubts that you may also have. From my point of view, I think this process is crucial, not only for implementing a Quest Manager, but any type of code. You should have the ideas clear in order to advance properly and fast.
 
 # Concept Discoveries about quests, missions and code structure:
+First of all, I want to comment you my experience doing this research. At the firsts days I started coding this research, I nearly didn't look to any external info in the internet, so I got really lost, and got stuck at the beggining. It was due to this fact that I went back, and make a brainstorming of what are quests, why should they be present in an RPG game, etc. Nowadays, having quests is a key element in videogames, it's such so that for some games, quests are a game pillar for the narrative of it. Thus, wanting to have a well implemented Quest Manager, let's start brainstorming some ideas.
+
+What are quest, and why is it not called as missions. Well, there is a tight difference between them, but generally a mission comes into action when a long process or storyline will be up to the player (GTA or Assassin's Creed as examples), whereas having multiple and rewardful quests that the player chooses which to do (World of Warcraft as example). Having known that, I preferred calling our System a Questie one, as I will be working on an RPG that requires quests rather than missions.
+
+After knowing that we will be using quests as a base, I researched on the common quest types that are used in the majority of videogames. I could differentiate 6 of them:
+ - Gather Quest: Known as collection or fetch quests, requires a character to collect X number of items. They can either be gathered from the environment, or they require to kill creatures in order to collect them. It can exist the possibility to gather different Y items in the same quest.
+ - Kill Quest: These quests send the character out to kill X number of creatures, or just an specific one. Commonly, these quests require the character to bring back proof of their success, such as trophies, heads, fur, etc. (I thought that these quest may also be gathering ones if all of them must have a proof to take back to the NPC)
+ - Delivery Quest: These quests involve the character being sent to deliver a package from one location to another. Maybe sometimes, the player will have to look for the item himself rather than being given by the demanding NPC. These quests challenge the player to go through dangerous or unexplored terrain, and maybe adding a time limit. (I also thought that these quests can also be summarised a gather quest).
+ - Dialogue Quest: These quests are really simple and not commonly well rewarded. They are just done to make the player go through the different parts of the game. If you are given this quest, you know that where you complete it,  you will have a quest zone to do.
+ - Escort Quest: These quests involve protecting an NPC while it walks completely randomly, but most commonly on a path / route. From my experience, the majority of time, that NPC will have a 0 iq AI and it will walk all through the enemies basement, and the player will have to handle multiple enemies, struggling while your loved NPC is just walking around, even pulling more and more enemies. As told, a not well-implement AI can make these quests sometimes impossible to complete for the player, as the NPC can behave unexpectedly or in unmanageable ways.
+ - Hybrid Quest: Some of these quests can be combined to make more complex ones. For example, a quest will require a character to find several items in the world (gathering quest), assemble an specific gun and killing creatures with that weapon (killing quest). It can also involve puzzles and riddles.
 
 
 # Complete implementation
@@ -85,6 +95,15 @@ Assets/GUI/gui.png
 ```
 
 # Webgraphy
+## Interesting web-pages about quests:
+[Wikipedia: Quests](https://en.wikipedia.org/wiki/Quest_(video_games))
+
+[GameDev Forum: Quests vs. missions](https://www.gamedev.net/forums/topic/692182-missions-vs-quests/5356654/)
+
+## Interesting videos about Quest System:
+[Video 1](https://youtu.be/c9IPvBdJoiE)
+
+[Video 2](https://youtu.be/k2zC9pg6Eno)
 
 
 # Help & Support (delete when delivery, only for me as Markdown)
