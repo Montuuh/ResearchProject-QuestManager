@@ -72,6 +72,9 @@ public:
 	int xp = 0;
 	int gold = 0;
 	int mushroomCount = 0;
+	int chopTreeCount = 0;
+	int beachRubbish = 0;
+	bool turtleKilled = false;
 
 private:
 	void Input(float dt);

@@ -11,7 +11,8 @@ struct Collider
 	{
 		ITEM_NONE = -1,
 		MUSHROOM,
-		DIAMOND,
+		TREE,
+		RUBBISH
 	};
 
 	enum Type
@@ -19,7 +20,7 @@ struct Collider
 		TYPE_NONE = -1,
 		PLAYER,
 		BLOCK,
-		DEATH,
+		TURTLE,
 		WIN,
 		CHECKPOINT,
 		ITEM,

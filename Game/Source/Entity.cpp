@@ -6,6 +6,7 @@
 #include "Render.h"
 #include "EntityManager.h"
 #include "Input.h"
+#include "ModulePlayer.h"
 
 
 
@@ -50,15 +51,28 @@ void Entity::OnCollision(Collider* collider)
 			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 			{
 				this->SetToDelete();
-
 			}
 			break;
-		case Collider::Items::DIAMOND:
-			this->SetToDelete();
+		case Collider::Items::TREE:
+			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && app->player->mushroomCount >= 8)
+			{
+				this->SetToDelete();
+			}
+			break;
+		case Collider::Items::RUBBISH:
+			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+			{
+				this->SetToDelete();
+			}
 			break;
 		default:
 			break;
 		}
+	}
+	if (this->collider->type == Collider::TURTLE && collider->type == Collider::Type::PLAYER)
+	{
+		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+			this->SetToDelete();
 	}
 }
 

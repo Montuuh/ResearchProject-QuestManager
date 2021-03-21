@@ -59,6 +59,24 @@ bool Scene::Start()
 	app->entities->AddEntity(EntityType::ITEM_MUSHROOM, 28 * 32 + 9, 17 * 32 + 10);
 	app->entities->AddEntity(EntityType::ITEM_MUSHROOM, 26 * 32 + 9, 19 * 32 + 10);
 
+	app->entities->AddEntity(EntityType::ITEM_TREE, 24 * 32 + 4, 8 * 32 + 1);
+	app->entities->AddEntity(EntityType::ITEM_TREE, 25 * 32 + 4, 10 * 32 + 1);
+	app->entities->AddEntity(EntityType::ITEM_TREE, 23 * 32 + 4, 11 * 32 + 1);
+	app->entities->AddEntity(EntityType::ITEM_TREE, 27 * 32 + 4, 12 * 32 + 1);
+	app->entities->AddEntity(EntityType::ITEM_TREE, 24 * 32 + 4, 13 * 32 + 1);
+	app->entities->AddEntity(EntityType::ITEM_TREE, 27 * 32 + 4, 14 * 32 + 1);
+	app->entities->AddEntity(EntityType::ITEM_TREE, 25 * 32 + 4, 16 * 32 + 1);
+	app->entities->AddEntity(EntityType::ITEM_TREE, 27 * 32 + 4, 17 * 32 + 1);
+	app->entities->AddEntity(EntityType::ITEM_TREE, 24 * 32 + 4, 18 * 32 + 1);
+	app->entities->AddEntity(EntityType::ITEM_TREE, 27 * 32 + 4, 19 * 32 + 1);
+
+	app->entities->AddEntity(EntityType::ITEM_RUBBISH, 18 * 32 + 9.5, 16 * 32 + 4);
+	app->entities->AddEntity(EntityType::ITEM_RUBBISH, 13 * 32 + 9.5, 17 * 32 + 4);
+	app->entities->AddEntity(EntityType::ITEM_RUBBISH, 18 * 32 + 9.5, 18 * 32 + 4);
+	app->entities->AddEntity(EntityType::ITEM_RUBBISH, 15 * 32 + 9.5, 19 * 32 + 4);
+	app->entities->AddEntity(EntityType::ITEM_RUBBISH, 21 * 32 + 9.5, 19 * 32 + 4);
+	app->entities->AddEntity(EntityType::ITEM_RUBBISH, 18 * 32 + 9.5, 21 * 32 + 4);
+
 	return true;
 }
 
@@ -83,6 +101,11 @@ bool Scene::Update(float dt)
 	if(app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += 1;
 
+	if (app->player->beachRubbish == 6 && app->player->turtleKilled == false)
+	{
+		app->player->beachRubbish = 0;
+		app->entities->AddEntity(EntityType::TURTLE, 20 * 32, 20 * 32);
+	}
 
 	return true;
 }

@@ -1,12 +1,12 @@
 #include "Entity.h"
 
-class ItemMushroom : public Entity
+class ItemTree : public Entity
 {
 public:
 
 	// Constructor (x y coordinates in the world)
 	// Creates animation data and the collider
-	ItemMushroom(int x, int y);
+	ItemTree(int x, int y);
 
 	// The enemy is going to perform a sinusoidal movement
 	void Update(float dt) override;

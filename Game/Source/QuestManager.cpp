@@ -138,17 +138,32 @@ bool QuestManager::DrawActiveQuests()
 			numToStr2 = numToStr.c_str();
 			app->render->DrawText(font, numToStr2, 280, 63, 60, 0, { 255,255,255,200 });
 			break;
-		case 2:
+		case 2: // quest chain from quest 1
 			// Title Drawing
 			titleText = L->data->title.GetString();
 			app->render->DrawText(font, titleText, 0, 60, 60, 0, { 255,255,255,255 });
 
 			// Amount of mushrooms taken
-			numToStr = to_string(app->player->mushroomCount);
+			numToStr = to_string(app->player->chopTreeCount);
 			numToStr2 = numToStr.c_str();
-			app->render->DrawText(font, numToStr2, 280, 63, 60, 0, { 255,255,255,200 });
+			app->render->DrawText(font, numToStr2, 180, 63, 60, 0, { 255,255,255,200 });
 			break;
 
+		case 3: // new quest chain
+			// Title Drawing
+			titleText = L->data->title.GetString();
+			app->render->DrawText(font, titleText, 0, 100, 60, 0, { 255,255,255,255 });
+
+			// Amount of mushrooms taken
+			numToStr = to_string(app->player->beachRubbish);
+			numToStr2 = numToStr.c_str();
+			app->render->DrawText(font, numToStr2, 225, 103, 60, 0, { 255,255,255,200 });
+			break;
+		case 4: // new quest chain
+			// Title Drawing
+			titleText = L->data->title.GetString();
+			app->render->DrawText(font, titleText, 0, 100, 60, 0, { 255,255,255,255 });
+			break;
 		default:
 			break;
 		}
@@ -161,44 +176,41 @@ bool QuestManager::DrawActiveQuests()
 bool QuestManager::CheckQuestsLogic()
 {
 	// For changing from one list to another (has finished quest)
-	ListItem<Quest*>* L4 = questsActive.start;
-	while (L4 != nullptr)
+	ListItem<Quest*>* activeQuestsList = questsActive.start;
+	while (activeQuestsList != nullptr)
 	{
-		if (L4->data->isCompleted == true)
+		if (activeQuestsList->data->isCompleted == true)
 		{
-			L4->data->status = 2;
-			//L->append_attribute("status") = 2?
-			//L->append_attribute("isCompleted") = true?
-			questsActive.Del(L4);
-			questsFinished.Add(L4->data);
-			app->player->RewardXP(L4->data->rewardXP);
-			app->player->RewardGold(L4->data->rewardGold);
+			activeQuestsList->data->status = 2;
+			questsActive.Del(activeQuestsList);
+			questsFinished.Add(activeQuestsList->data);
+			app->player->RewardXP(activeQuestsList->data->rewardXP);
+			app->player->RewardGold(activeQuestsList->data->rewardGold);
 		}
 
-		L4 = L4->next;
+		activeQuestsList = activeQuestsList->next;
 	}
 
 	// Quest chain logic (if required quest is completed)
-	ListItem<Quest*>* L = questsInactive.start;
-	while (L != NULL)
+	ListItem<Quest*>* inactiveQuestsList = questsInactive.start;
+	while (inactiveQuestsList != NULL)
 	{
-		if (L->data->requiredId != 0)
+		if (inactiveQuestsList->data->requiredId != 0)
 		{
 			ListItem<Quest*>* L2 = questsFinished.start;
 			while (L2 != NULL)
 			{
-				if (L->data->requiredId == L2->data->id)
+				if (inactiveQuestsList->data->requiredId == L2->data->id)
 				{
-					questsActive.Add(L->data);
-					questsInactive.Del(L);
-					//L->append_attribute("status") = 1?
-					L->data->status = 1;
+					questsActive.Add(inactiveQuestsList->data);
+					questsInactive.Del(inactiveQuestsList);
+					inactiveQuestsList->data->status = 1;
 				}
 				L2 = L2->next;
 			}
 		}
 
-		L = L->next;
+		inactiveQuestsList = inactiveQuestsList->next;
 	}
 	
 	return true;
@@ -206,7 +218,7 @@ bool QuestManager::CheckQuestsLogic()
 
 bool QuestManager::CheckObjectivesCompletion()
 {
-	/////////////////// Debug: Complete quest with id 2
+	/////////////////// Debug: Complete quest with id selected
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 	{
 		int id = 1;
@@ -216,7 +228,16 @@ bool QuestManager::CheckObjectivesCompletion()
 
 	if (app->player->mushroomCount == 8)
 		CompleteQuest(1);
+
+	if (app->player->chopTreeCount == 10)
+		CompleteQuest(2);
 	
+	if (app->player->beachRubbish == 6)
+		CompleteQuest(3);
+
+	if (app->player->turtleKilled == true)
+		CompleteQuest(4);
+
 	return true;
 }
 

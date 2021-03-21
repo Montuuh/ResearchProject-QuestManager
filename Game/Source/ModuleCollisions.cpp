@@ -36,42 +36,42 @@ ModuleCollisions::ModuleCollisions(bool b) : Module()
 
 	matrix[Collider::Type::BLOCK][Collider::Type::BLOCK] = false;
 	matrix[Collider::Type::BLOCK][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::BLOCK][Collider::Type::DEATH] = false;
+	matrix[Collider::Type::BLOCK][Collider::Type::TURTLE] = false;
 	matrix[Collider::Type::BLOCK][Collider::Type::WIN] = false;
 	matrix[Collider::Type::BLOCK][Collider::Type::CHECKPOINT] = false;
 	matrix[Collider::Type::BLOCK][Collider::Type::ITEM] = false;
 
 	matrix[Collider::Type::PLAYER][Collider::Type::BLOCK] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
-	matrix[Collider::Type::PLAYER][Collider::Type::DEATH] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::TURTLE] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::WIN] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::CHECKPOINT] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::ITEM] = true;
 
-	matrix[Collider::Type::DEATH][Collider::Type::BLOCK] = false;
-	matrix[Collider::Type::DEATH][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::DEATH][Collider::Type::DEATH] = false;
-	matrix[Collider::Type::DEATH][Collider::Type::WIN] = false;
-	matrix[Collider::Type::DEATH][Collider::Type::CHECKPOINT] = false;
-	matrix[Collider::Type::DEATH][Collider::Type::ITEM] = false;
+	matrix[Collider::Type::TURTLE][Collider::Type::BLOCK] = false;
+	matrix[Collider::Type::TURTLE][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::TURTLE][Collider::Type::TURTLE] = false;
+	matrix[Collider::Type::TURTLE][Collider::Type::WIN] = false;
+	matrix[Collider::Type::TURTLE][Collider::Type::CHECKPOINT] = false;
+	matrix[Collider::Type::TURTLE][Collider::Type::ITEM] = false;
 
 	matrix[Collider::Type::WIN][Collider::Type::BLOCK] = false;
 	matrix[Collider::Type::WIN][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::WIN][Collider::Type::DEATH] = false;
+	matrix[Collider::Type::WIN][Collider::Type::TURTLE] = false;
 	matrix[Collider::Type::WIN][Collider::Type::WIN] = false;
 	matrix[Collider::Type::WIN][Collider::Type::CHECKPOINT] = false;
 	matrix[Collider::Type::WIN][Collider::Type::ITEM] = false;
 
 	matrix[Collider::Type::CHECKPOINT][Collider::Type::BLOCK] = false;
 	matrix[Collider::Type::CHECKPOINT][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::CHECKPOINT][Collider::Type::DEATH] = false;
+	matrix[Collider::Type::CHECKPOINT][Collider::Type::TURTLE] = false;
 	matrix[Collider::Type::CHECKPOINT][Collider::Type::WIN] = false;
 	matrix[Collider::Type::CHECKPOINT][Collider::Type::CHECKPOINT] = false;
 	matrix[Collider::Type::CHECKPOINT][Collider::Type::ITEM] = false;
 
 	matrix[Collider::Type::ITEM][Collider::Type::BLOCK] = false;
 	matrix[Collider::Type::ITEM][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::ITEM][Collider::Type::DEATH] = false;
+	matrix[Collider::Type::ITEM][Collider::Type::TURTLE] = false;
 	matrix[Collider::Type::ITEM][Collider::Type::WIN] = false;
 	matrix[Collider::Type::ITEM][Collider::Type::CHECKPOINT] = false;
 	matrix[Collider::Type::ITEM][Collider::Type::ITEM] = false;
@@ -194,7 +194,7 @@ void ModuleCollisions::DebugDraw()
 		case Collider::Type::PLAYER: // Green
 			app->render->DrawRectangle(list1->data->rect, 0, 255, 0, alpha);
 			break;
-		case Collider::Type::DEATH: // red
+		case Collider::Type::TURTLE: // red
 			app->render->DrawRectangle(list1->data->rect, 255, 0, 0, alpha);
 			break;
 		case Collider::Type::WIN: // orange

@@ -125,7 +125,7 @@ void ModulePlayer::Input(float dt)
 {
 
 	// Player movement when going to the left
-	if ((app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT))
+	if ((app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) && !app->input->GetKey(SDL_SCANCODE_S) && !app->input->GetKey(SDL_SCANCODE_W) && !app->input->GetKey(SDL_SCANCODE_D))
 	{
 		if (currentAnimation != &runLeftAnim)
 		{
@@ -144,7 +144,7 @@ void ModulePlayer::Input(float dt)
 	}
 
 	// Player movement when going to the right
-	if ((app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT))
+	if ((app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) && !app->input->GetKey(SDL_SCANCODE_S) && !app->input->GetKey(SDL_SCANCODE_W) && !app->input->GetKey(SDL_SCANCODE_A))
 	{
 		if (currentAnimation != &runRightAnim)
 		{
@@ -163,7 +163,7 @@ void ModulePlayer::Input(float dt)
 	}
 
 	// Player movement when going up
-	if ((app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT))
+	if ((app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) && !app->input->GetKey(SDL_SCANCODE_S) && !app->input->GetKey(SDL_SCANCODE_A) && !app->input->GetKey(SDL_SCANCODE_D))
 	{
 		if (currentAnimation != &runUpAnim)
 		{
@@ -182,7 +182,7 @@ void ModulePlayer::Input(float dt)
 	}
 
 	// Player movement when going down
-	if ((app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT))
+	if ((app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) && !app->input->GetKey(SDL_SCANCODE_A) && !app->input->GetKey(SDL_SCANCODE_W) && !app->input->GetKey(SDL_SCANCODE_D))
 	{
 		if (currentAnimation != &runDownAnim)
 		{
@@ -287,10 +287,14 @@ bool ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		previousCollision = c2;
 	}
 
-	if (c2->type == Collider::Type::DEATH && (previousCollision->type != Collider::Type::DEATH) && !godMode)
+	if (c2->type == Collider::Type::TURTLE && (previousCollision->type != Collider::Type::TURTLE))
 	{
-
-		previousCollision = c2;
+		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+		{
+			previousCollision = c2;
+			c2->listener->OnCollision(c2, c1);
+			turtleKilled++;
+		}
 	}
 
 	if (c2->type == Collider::Type::ITEM /*&& (previousCollision->type != Collider::Type::ITEM)*/)
@@ -306,11 +310,23 @@ bool ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				mushroomCount++;
 				break;
 			}
-		//case Collider::Items::DIAMOND:
+		case Collider::Items::TREE:
+			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && mushroomCount >= 8)
+			{
+				previousCollision = c2;
+				c2->listener->OnCollision(c2, c1);
+				chopTreeCount++;
+				break;
+			}
+		case Collider::Items::RUBBISH:
+			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+			{
+				previousCollision = c2;
+				c2->listener->OnCollision(c2, c1);
+				beachRubbish++;
+				break;
+			}
 
-		//	previousCollision = c2;
-		//	c2->listener->OnCollision(c2, c1);
-		//	break;
 		default:
 			break;
 		}

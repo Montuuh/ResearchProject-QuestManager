@@ -99,6 +99,8 @@
     <ClCompile Include="Source\EntityManager.cpp" />
     <ClCompile Include="Source\Font.cpp" />
     <ClCompile Include="Source\ItemMushroom.cpp" />
+    <ClCompile Include="Source\ItemRubbish.cpp" />
+    <ClCompile Include="Source\ItemTree.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\Audio.cpp" />
@@ -110,12 +112,15 @@
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\Render.cpp" />
     <ClCompile Include="Source\Textures.cpp" />
+    <ClCompile Include="Source\Turtle.cpp" />
     <ClCompile Include="Source\Window.cpp" />
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\Entity.h" />
     <ClInclude Include="Source\EntityManager.h" />
     <ClInclude Include="Source\Font.h" />
     <ClInclude Include="Source\ItemMushroom.h" />
+    <ClInclude Include="Source\ItemRubbish.h" />
+    <ClInclude Include="Source\ItemTree.h" />
     <ClInclude Include="Source\Map.h" />
     <ClInclude Include="Source\ModuleCollisions.h" />
     <ClInclude Include="Source\ModulePlayer.h" />
@@ -128,6 +133,7 @@
     <ClInclude Include="Source\Module.h" />
     <ClInclude Include="Source\Render.h" />
     <ClInclude Include="Source\Textures.h" />
+    <ClInclude Include="Source\Turtle.h" />
     <ClInclude Include="Source\Window.h" />
     <ClInclude Include="Source\Defs.h" />
     <ClInclude Include="Source\List.h" />

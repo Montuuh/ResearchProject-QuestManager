@@ -4,7 +4,7 @@
 #include "ModuleCollisions.h"
 
 
-ItemHealth::ItemHealth(int x, int y) : Entity(x, y)
+ItemMushroom::ItemMushroom(int x, int y) : Entity(x, y)
 {
 	spawnDelay = 0;
 	this->entityType = EntityType::ITEM_MUSHROOM;
@@ -14,7 +14,7 @@ ItemHealth::ItemHealth(int x, int y) : Entity(x, y)
 	collider = app->collisions->AddCollider({ 0, 0, 14 , 12 }, Collider::Type::ITEM, (Module*)app->entities, Collider::Items::MUSHROOM);
 }
 
-void ItemHealth::Update(float dt)
+void ItemMushroom::Update(float dt)
 {
 	Entity::Update(dt);
 }

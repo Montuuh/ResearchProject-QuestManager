@@ -53,6 +53,15 @@
     <ClCompile Include="Source\Font.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ItemTree.cpp">
+      <Filter>Core\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ItemRubbish.cpp">
+      <Filter>Core\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Turtle.cpp">
+      <Filter>Core\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Defs.h">
@@ -130,6 +139,15 @@
     <ClInclude Include="Source\QuestManager.h" />
     <ClInclude Include="Source\Font.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ItemTree.h">
+      <Filter>Core\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ItemRubbish.h">
+      <Filter>Core\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Turtle.h">
+      <Filter>Core\Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

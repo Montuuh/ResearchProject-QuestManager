@@ -12,7 +12,9 @@
 #include "Entity.h"
 
 #include "ItemMushroom.h"
-//#include "ItemDiamond.h"
+#include "ItemTree.h"
+#include "ItemRubbish.h"
+#include "Turtle.h"
 
 
 #define SPAWN_MARGIN 50
@@ -160,18 +162,32 @@ void Entities::SpawnEnemy(const EntitySpawnpoint& info)
 	{
 	case EntityType::ITEM_MUSHROOM:
 	{
-		newEntity = new ItemHealth(info.x, info.y);
+		newEntity = new ItemMushroom(info.x, info.y);
 		newEntity->texture = spritesheetTexture;
 
 		break;
 	}
-	//case EntityType::ITEM_DIAMOND:
-	//{
-	//	newEntity = new ItemDiamond(info.x, info.y);
-	//	newEntity->texture = spritesheetTexture;
+	case EntityType::ITEM_TREE:
+	{
+		newEntity = new ItemTree(info.x, info.y);
+		newEntity->texture = spritesheetTexture;
 
-	//	break;
-	//}
+		break;
+	}
+	case EntityType::ITEM_RUBBISH:
+	{
+		newEntity = new ItemRubbish(info.x, info.y);
+		newEntity->texture = spritesheetTexture;
+
+		break;
+	}
+	case EntityType::TURTLE:
+	{
+		newEntity = new Turtle(info.x, info.y);
+		newEntity->texture = spritesheetTexture;
+
+		break;
+	}
 
 	}
 	entities.Add(newEntity);

@@ -10,7 +10,9 @@ enum EntityType
 {
 	NO_TYPE,
 	ITEM_MUSHROOM,
-	ITEM_DIAMOND,
+	ITEM_TREE,
+	ITEM_RUBBISH,
+	TURTLE
 };
 
 struct EntitySpawnpoint
