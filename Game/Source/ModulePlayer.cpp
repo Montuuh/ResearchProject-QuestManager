@@ -163,7 +163,7 @@ void ModulePlayer::Input(float dt)
 	}
 
 	// Player movement when going up
-	if ((app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) && !app->input->GetKey(SDL_SCANCODE_S) && !app->input->GetKey(SDL_SCANCODE_A) && !app->input->GetKey(SDL_SCANCODE_D))
+	if ((app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT))
 	{
 		if (currentAnimation != &runUpAnim)
 		{
@@ -182,7 +182,7 @@ void ModulePlayer::Input(float dt)
 	}
 
 	// Player movement when going down
-	if ((app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) && !app->input->GetKey(SDL_SCANCODE_A) && !app->input->GetKey(SDL_SCANCODE_W) && !app->input->GetKey(SDL_SCANCODE_D))
+	if ((app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT))
 	{
 		if (currentAnimation != &runDownAnim)
 		{
