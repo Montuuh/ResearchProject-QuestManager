@@ -14,8 +14,10 @@
 		isCompleted = "(bool)This is a true / false if quest is completed"
 		status = "(int)This is a number to know the status of the quest (0 inactive, 1 active, 2 completed)"
 	/>
+	<!--  ToDo 1: Fulfill left blanks with the correct value --> 
+	 <!--  Gathering quest, active at start --> 
 	<quest
-		id = "1"
+		id = "1" 
 		type = "0"
 		title = "Collect 8 mushrooms:"
 		description = "Go to the forest close to the beach and gather 8 mushrooms from it."
@@ -29,7 +31,8 @@
 		isCompleted = "false"
 		status = "1"
 	/>
-	<quest
+	 <!--  Gathering quest, active when quest 1 is completed --> 
+	<quest 
 		id = "2"
 		type = "0"
 		title = "Chop 10 trees:"
@@ -44,6 +47,7 @@
 		isCompleted = "false"
 		status = "0"
 	/>
+	 <!--  Gathering quest, active at start --> 
 	<quest
 		id = "3"
 		type = "0"
@@ -59,6 +63,7 @@
 		isCompleted = "false"
 		status = "1"
 	/>
+	 <!--  Killing quest, active when quest 3 is completed --> 
 	<quest
 		id = "4"
 		type = "1"
@@ -74,6 +79,7 @@
 		isCompleted = "false"
 		status = "0"
 	/>
+	 <!--  Delivering quest, active when quest 2 and 4 are completed --> 
 	<quest
 		id = "5"
 		type = "2"
@@ -81,14 +87,15 @@
 		description = "You gained enough reputation with the famous knight. He has proposed you pick up the lost snail and bring it back to him."
 		objective = "snail"
 		quantity = "1"
-		demandingNPC = "knight"
-		rewardingNPC = "knight"
+		demandingNPC = "None"
+		rewardingNPC = "None"
 		rewardXP = "150"
 		rewardGold = "100"
 		requiredId = "0"
 		isCompleted = "false"
 		status = "0"
 	/>
+	 <!--  Killing quest, active when quest 5 is completed --> 
 	<quest
 		id = "6"
 		type = "1"
@@ -96,8 +103,8 @@
 		description = "For the final mission, the glamorous knight has asked you to kill that enormous monster that is approaching him. Take care."
 		objective = "monster"
 		quantity = "1"
-		demandingNPC = "knight"
-		rewardingNPC = "knight"
+		demandingNPC = "None"
+		rewardingNPC = "None"
 		rewardXP = "1000"
 		rewardGold = "1000"
 		requiredId = "5"
