@@ -62,7 +62,7 @@
 	<quest
 		id = "4"
 		type = "1"
-		title = "Kill the big turtle:"
+		title = "Kill the big turtle"
 		description = "When you cleaned that beach, it's big turtle appeared really angry, with a single objective of killing you. Take care."
 		objective = "turtle"
 		quantity = "1"
@@ -74,6 +74,35 @@
 		isCompleted = "false"
 		status = "0"
 	/>
-
+	<quest
+		id = "5"
+		type = "2"
+		title = "Take the snail and bring it back to the knight"
+		description = "You gained enough reputation with the famous knight. He has proposed you pick up the lost snail and bring it back to him."
+		objective = "snail"
+		quantity = "1"
+		demandingNPC = "knight"
+		rewardingNPC = "knight"
+		rewardXP = "150"
+		rewardGold = "100"
+		requiredId = "0"
+		isCompleted = "false"
+		status = "0"
+	/>
+	<quest
+		id = "6"
+		type = "1"
+		title = "Kill that ugly big monster"
+		description = "For the final mission, the glamorous knight has asked you to kill that enormous monster that is approaching him. Take care."
+		objective = "monster"
+		quantity = "1"
+		demandingNPC = "knight"
+		rewardingNPC = "knight"
+		rewardXP = "1000"
+		rewardGold = "1000"
+		requiredId = "5"
+		isCompleted = "false"
+		status = "0"
+	/>
 
 </quests>

@@ -4,9 +4,6 @@
     <ClCompile Include="Source\Log.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp">
-      <Filter>External\PugiXml</Filter>
-    </ClCompile>
     <ClCompile Include="Source\App.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -60,6 +57,18 @@
       <Filter>Core\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Source\Turtle.cpp">
+      <Filter>Core\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp">
+      <Filter>External\PugiXml</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ItemSnail.cpp">
+      <Filter>Core\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Knight.cpp">
+      <Filter>Core\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Monster.cpp">
       <Filter>Core\Entities</Filter>
     </ClCompile>
   </ItemGroup>
@@ -147,6 +156,15 @@
       <Filter>Core\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Source\Turtle.h">
+      <Filter>Core\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ItemSnail.h">
+      <Filter>Core\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Knight.h">
+      <Filter>Core\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Monster.h">
       <Filter>Core\Entities</Filter>
     </ClInclude>
   </ItemGroup>

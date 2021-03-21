@@ -75,6 +75,9 @@ public:
 	int chopTreeCount = 0;
 	int beachRubbish = 0;
 	bool turtleKilled = false;
+	bool snailTaken = false;
+	bool snailDelivered = false;
+	bool monsterKilled = false;
 
 private:
 	void Input(float dt);

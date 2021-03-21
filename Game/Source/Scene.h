@@ -38,6 +38,10 @@ private:
 	SDL_Rect coinRect;
 
 	Font* font;
+
+	bool treeSpawn = false;
+	bool knightSnailSpawn = false;
+	bool monsterSpawned = false;
 };
 
 #endif // __SCENE_H__

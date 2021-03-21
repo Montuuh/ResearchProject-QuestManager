@@ -37,43 +37,43 @@ ModuleCollisions::ModuleCollisions(bool b) : Module()
 	matrix[Collider::Type::BLOCK][Collider::Type::BLOCK] = false;
 	matrix[Collider::Type::BLOCK][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::BLOCK][Collider::Type::TURTLE] = false;
-	matrix[Collider::Type::BLOCK][Collider::Type::WIN] = false;
-	matrix[Collider::Type::BLOCK][Collider::Type::CHECKPOINT] = false;
+	matrix[Collider::Type::BLOCK][Collider::Type::KNIGHT] = false;
+	matrix[Collider::Type::BLOCK][Collider::Type::MONSTER] = false;
 	matrix[Collider::Type::BLOCK][Collider::Type::ITEM] = false;
 
 	matrix[Collider::Type::PLAYER][Collider::Type::BLOCK] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::TURTLE] = true;
-	matrix[Collider::Type::PLAYER][Collider::Type::WIN] = true;
-	matrix[Collider::Type::PLAYER][Collider::Type::CHECKPOINT] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::KNIGHT] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::MONSTER] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::ITEM] = true;
 
 	matrix[Collider::Type::TURTLE][Collider::Type::BLOCK] = false;
 	matrix[Collider::Type::TURTLE][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::TURTLE][Collider::Type::TURTLE] = false;
-	matrix[Collider::Type::TURTLE][Collider::Type::WIN] = false;
-	matrix[Collider::Type::TURTLE][Collider::Type::CHECKPOINT] = false;
+	matrix[Collider::Type::TURTLE][Collider::Type::KNIGHT] = false;
+	matrix[Collider::Type::TURTLE][Collider::Type::MONSTER] = false;
 	matrix[Collider::Type::TURTLE][Collider::Type::ITEM] = false;
 
-	matrix[Collider::Type::WIN][Collider::Type::BLOCK] = false;
-	matrix[Collider::Type::WIN][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::WIN][Collider::Type::TURTLE] = false;
-	matrix[Collider::Type::WIN][Collider::Type::WIN] = false;
-	matrix[Collider::Type::WIN][Collider::Type::CHECKPOINT] = false;
-	matrix[Collider::Type::WIN][Collider::Type::ITEM] = false;
+	matrix[Collider::Type::KNIGHT][Collider::Type::BLOCK] = false;
+	matrix[Collider::Type::KNIGHT][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::KNIGHT][Collider::Type::TURTLE] = false;
+	matrix[Collider::Type::KNIGHT][Collider::Type::KNIGHT] = false;
+	matrix[Collider::Type::KNIGHT][Collider::Type::MONSTER] = false;
+	matrix[Collider::Type::KNIGHT][Collider::Type::ITEM] = false;
 
-	matrix[Collider::Type::CHECKPOINT][Collider::Type::BLOCK] = false;
-	matrix[Collider::Type::CHECKPOINT][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::CHECKPOINT][Collider::Type::TURTLE] = false;
-	matrix[Collider::Type::CHECKPOINT][Collider::Type::WIN] = false;
-	matrix[Collider::Type::CHECKPOINT][Collider::Type::CHECKPOINT] = false;
-	matrix[Collider::Type::CHECKPOINT][Collider::Type::ITEM] = false;
+	matrix[Collider::Type::MONSTER][Collider::Type::BLOCK] = false;
+	matrix[Collider::Type::MONSTER][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::MONSTER][Collider::Type::TURTLE] = false;
+	matrix[Collider::Type::MONSTER][Collider::Type::KNIGHT] = false;
+	matrix[Collider::Type::MONSTER][Collider::Type::MONSTER] = false;
+	matrix[Collider::Type::MONSTER][Collider::Type::ITEM] = false;
 
 	matrix[Collider::Type::ITEM][Collider::Type::BLOCK] = false;
 	matrix[Collider::Type::ITEM][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::ITEM][Collider::Type::TURTLE] = false;
-	matrix[Collider::Type::ITEM][Collider::Type::WIN] = false;
-	matrix[Collider::Type::ITEM][Collider::Type::CHECKPOINT] = false;
+	matrix[Collider::Type::ITEM][Collider::Type::KNIGHT] = false;
+	matrix[Collider::Type::ITEM][Collider::Type::MONSTER] = false;
 	matrix[Collider::Type::ITEM][Collider::Type::ITEM] = false;
 }
 // Destructor
@@ -197,11 +197,11 @@ void ModuleCollisions::DebugDraw()
 		case Collider::Type::TURTLE: // red
 			app->render->DrawRectangle(list1->data->rect, 255, 0, 0, alpha);
 			break;
-		case Collider::Type::WIN: // orange
+		case Collider::Type::KNIGHT: // orange
 			app->render->DrawRectangle(list1->data->rect, 255, 165, 0, alpha);
 			break;
-		case Collider::Type::CHECKPOINT: // Dark blue	
-			app->render->DrawRectangle(list1->data->rect, 0, 0, 139, alpha);
+		case Collider::Type::MONSTER: // red	
+			app->render->DrawRectangle(list1->data->rect, 255, 0, 0, alpha);
 			break;
 		case Collider::Type::ITEM: // Dark blue	
 			app->render->DrawRectangle(list1->data->rect, 238, 130, 238, alpha);

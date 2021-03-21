@@ -100,7 +100,9 @@
     <ClCompile Include="Source\Font.cpp" />
     <ClCompile Include="Source\ItemMushroom.cpp" />
     <ClCompile Include="Source\ItemRubbish.cpp" />
+    <ClCompile Include="Source\ItemSnail.cpp" />
     <ClCompile Include="Source\ItemTree.cpp" />
+    <ClCompile Include="Source\Knight.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\Audio.cpp" />
@@ -108,6 +110,7 @@
     <ClCompile Include="Source\Map.cpp" />
     <ClCompile Include="Source\ModuleCollisions.cpp" />
     <ClCompile Include="Source\ModulePlayer.cpp" />
+    <ClCompile Include="Source\Monster.cpp" />
     <ClCompile Include="Source\QuestManager.cpp" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\Render.cpp" />
@@ -120,10 +123,13 @@
     <ClInclude Include="Source\Font.h" />
     <ClInclude Include="Source\ItemMushroom.h" />
     <ClInclude Include="Source\ItemRubbish.h" />
+    <ClInclude Include="Source\ItemSnail.h" />
     <ClInclude Include="Source\ItemTree.h" />
+    <ClInclude Include="Source\Knight.h" />
     <ClInclude Include="Source\Map.h" />
     <ClInclude Include="Source\ModuleCollisions.h" />
     <ClInclude Include="Source\ModulePlayer.h" />
+    <ClInclude Include="Source\Monster.h" />
     <ClInclude Include="Source\QuestManager.h" />
     <ClInclude Include="Source\Queue.h" />
     <ClInclude Include="Source\Scene.h" />

@@ -12,7 +12,10 @@ enum EntityType
 	ITEM_MUSHROOM,
 	ITEM_TREE,
 	ITEM_RUBBISH,
-	TURTLE
+	TURTLE,
+	ITEM_SNAIL,
+	KNIGHT,
+	MONSTER
 };
 
 struct EntitySpawnpoint
@@ -68,10 +71,12 @@ public:
 	void HandleEnemiesDespawn();
 
 
-
+	List<Entity*>entities;
 private:
 	// Spawns a new enemy using the data from the queue
 	void SpawnEnemy(const EntitySpawnpoint& info);
+
+
 
 private:
 	// A queue with all spawn points information
@@ -80,7 +85,7 @@ private:
 
 	// All spawned enemies in the scene
 	/*Entity* enemies[MAX_ENEMIES] = { nullptr };*/
-	List<Entity*>entities;
+
 
 	// The enemies sprite sheet
 	SDL_Texture* spritesheetTexture = nullptr;

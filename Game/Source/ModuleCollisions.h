@@ -12,7 +12,8 @@ struct Collider
 		ITEM_NONE = -1,
 		MUSHROOM,
 		TREE,
-		RUBBISH
+		RUBBISH,
+		SNAIL
 	};
 
 	enum Type
@@ -21,8 +22,8 @@ struct Collider
 		PLAYER,
 		BLOCK,
 		TURTLE,
-		WIN,
-		CHECKPOINT,
+		KNIGHT,
+		MONSTER,
 		ITEM,
 
 		MAX = 6,

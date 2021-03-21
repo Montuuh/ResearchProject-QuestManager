@@ -281,13 +281,17 @@ bool ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		previousCollision = c2;
 	}
 
-	if (c2->type == Collider::Type::CHECKPOINT && (previousCollision->type != Collider::Type::CHECKPOINT))
+	if (c2->type == Collider::Type::MONSTER)
 	{
-
-		previousCollision = c2;
+		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+		{
+			previousCollision = c2;
+			c2->listener->OnCollision(c2, c1);
+			monsterKilled++;
+		}
 	}
 
-	if (c2->type == Collider::Type::TURTLE && (previousCollision->type != Collider::Type::TURTLE))
+	if (c2->type == Collider::Type::TURTLE)
 	{
 		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 		{
@@ -297,9 +301,8 @@ bool ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 
-	if (c2->type == Collider::Type::ITEM /*&& (previousCollision->type != Collider::Type::ITEM)*/)
+	if (c2->type == Collider::Type::ITEM)
 	{
-
 		switch (c2->item)
 		{
 		case Collider::Items::MUSHROOM:
@@ -308,36 +311,45 @@ bool ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				previousCollision = c2;
 				c2->listener->OnCollision(c2, c1);
 				mushroomCount++;
-				break;
 			}
+			break;
 		case Collider::Items::TREE:
 			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && mushroomCount >= 8)
 			{
 				previousCollision = c2;
 				c2->listener->OnCollision(c2, c1);
 				chopTreeCount++;
-				break;
 			}
+			break;
 		case Collider::Items::RUBBISH:
 			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 			{
 				previousCollision = c2;
 				c2->listener->OnCollision(c2, c1);
 				beachRubbish++;
-				break;
 			}
-
+			break;
+		case Collider::Items::SNAIL:
+			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+			{
+				previousCollision = c2;
+				c2->listener->OnCollision(c2, c1);
+				snailTaken = true;
+			}
+			break;
 		default:
 			break;
 		}
-
-
 	}
 
-	if (c2->type == Collider::Type::WIN && (previousCollision->type != Collider::Type::WIN))
+	if (c2->type == Collider::Type::KNIGHT)
 	{
-
-		previousCollision = c2;
+		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && snailTaken)
+		{
+			previousCollision = c2;
+			c2->listener->OnCollision(c2, c1);
+			snailDelivered = true;
+		}
 	}
 
 	return ret;

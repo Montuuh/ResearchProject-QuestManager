@@ -10,6 +10,9 @@
 #include "Font.h"
 #include "Textures.h"
 #include "SDL/include/SDL_scancode.h"
+#include "EntityManager.h"
+#include "Entity.h"
+#include "ModuleCollisions.h"
 
 #include <string>
 #include <iostream>
@@ -119,51 +122,93 @@ pugi::xml_node QuestManager::LoadQuestData(pugi::xml_document questData)
 
 bool QuestManager::DrawActiveQuests()
 {
-	ListItem<Quest*>* L = questsActive.start;
-	const char* titleText;
-	const char* descriptionText;
 	string numToStr;
 	const char* numToStr2;
+	ListItem<Quest*>* L = questsActive.start;
 	while (L != NULL)
 	{
 		switch (L->data->id)
 		{
-		case 1: // Quest number 1
+		case 1: // new quest chain 1
 			// Title Drawing
-			titleText = L->data->title.GetString();
-			app->render->DrawText(font, titleText, 0, 60, 60, 0, { 255,255,255,255 });
+			app->render->DrawText(font, L->data->title.GetString(), 0, 60, 60, 0, { 255,255,255,255 });
 
 			// Amount of mushrooms taken
 			numToStr = to_string(app->player->mushroomCount);
 			numToStr2 = numToStr.c_str();
 			app->render->DrawText(font, numToStr2, 280, 63, 60, 0, { 255,255,255,200 });
-			break;
-		case 2: // quest chain from quest 1
-			// Title Drawing
-			titleText = L->data->title.GetString();
-			app->render->DrawText(font, titleText, 0, 60, 60, 0, { 255,255,255,255 });
 
-			// Amount of mushrooms taken
+			// Description Drawing if pressed L
+			if (app->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT)
+			{
+				app->render->DrawText(font, L->data->description.GetString(), 300, 70, 45, 0, { 200,200,200,155 });
+			}
+
+			break;
+		case 2: // quest chain 1 (quest 2)
+			// Title Drawing
+			app->render->DrawText(font, L->data->title.GetString(), 0, 60, 60, 0, { 255,255,255,255 });
+
+			// Amount of trees taken
 			numToStr = to_string(app->player->chopTreeCount);
 			numToStr2 = numToStr.c_str();
 			app->render->DrawText(font, numToStr2, 180, 63, 60, 0, { 255,255,255,200 });
+
+			// Description Drawing if pressed L
+			if (app->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT)
+			{
+				app->render->DrawText(font, L->data->description.GetString(), 200, 70, 45, 0, { 200,200,200,155 });
+			}
+
 			break;
 
-		case 3: // new quest chain
+		case 3: // new quest chain 2
 			// Title Drawing
-			titleText = L->data->title.GetString();
-			app->render->DrawText(font, titleText, 0, 100, 60, 0, { 255,255,255,255 });
+			app->render->DrawText(font, L->data->title.GetString(), 0, 100, 60, 0, { 255,255,255,255 });
 
-			// Amount of mushrooms taken
+			// Amount of rubbish taken
 			numToStr = to_string(app->player->beachRubbish);
 			numToStr2 = numToStr.c_str();
 			app->render->DrawText(font, numToStr2, 225, 103, 60, 0, { 255,255,255,200 });
+
+			// Description Drawing if pressed L
+			if (app->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT)
+			{
+				app->render->DrawText(font, L->data->description.GetString(), 245, 110, 45, 0, { 200,200,200,155 });
+			}
+
 			break;
-		case 4: // new quest chain
+		case 4: // quest chain 2 (quest 2)
 			// Title Drawing
-			titleText = L->data->title.GetString();
-			app->render->DrawText(font, titleText, 0, 100, 60, 0, { 255,255,255,255 });
+			app->render->DrawText(font, L->data->title.GetString(), 0, 100, 60, 0, { 255,255,255,255 });
+
+			// Description Drawing if pressed L
+			if (app->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT)
+			{
+				app->render->DrawText(font, L->data->description.GetString(), 0, 140, 45, 0, { 200,200,200,155 });
+			}
+
 			break;
+		case 5:
+			// Title Drawing
+			app->render->DrawText(font, L->data->title.GetString(), 0, 60, 60, 0, { 255,255,255,255 });
+
+			// Description Drawing if pressed L
+			if (app->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT)
+			{
+				app->render->DrawText(font, L->data->description.GetString(), 0, 100, 45, 0, { 200,200,200,155 });
+			}
+
+			break;
+		case 6:
+			// Title Drawing
+			app->render->DrawText(font, L->data->title.GetString(), 0, 60, 60, 0, { 255,255,255,255 });
+
+			// Description Drawing if pressed L
+			if (app->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT)
+			{
+				app->render->DrawText(font, L->data->description.GetString(), 0, 100, 45, 0, { 200,200,200,155 });
+			}
 		default:
 			break;
 		}
@@ -175,6 +220,22 @@ bool QuestManager::DrawActiveQuests()
 
 bool QuestManager::CheckQuestsLogic()
 {
+	// Complex ChainQuests Hardcoded to put it at active list
+	if (app->player->chopTreeCount == 10 && app->player->turtleKilled)
+	{
+		ListItem<Quest*>* chainQuestLookingList = questsInactive.start;
+		while (chainQuestLookingList != NULL)
+		{
+			if (chainQuestLookingList->data->id == 5)
+			{
+				questsActive.Add(chainQuestLookingList->data);
+				questsInactive.Del(chainQuestLookingList);
+				chainQuestLookingList->data->status = 1;
+			}
+			chainQuestLookingList = chainQuestLookingList->next;
+		}
+	}
+
 	// For changing from one list to another (has finished quest)
 	ListItem<Quest*>* activeQuestsList = questsActive.start;
 	while (activeQuestsList != nullptr)
@@ -221,8 +282,78 @@ bool QuestManager::CheckObjectivesCompletion()
 	/////////////////// Debug: Complete quest with id selected
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 	{
-		int id = 1;
-		CompleteQuestDebug(id);
+		ListItem<Entity*>* L;
+		switch (debugId)
+		{
+		case 1:
+			app->player->mushroomCount = 8;
+			L = app->entities->entities.start;
+			while (L != NULL)
+			{
+				if (L->data->entityType == EntityType::ITEM_MUSHROOM)
+					app->entities->entities.Del(L);
+				L = L->next;
+			}
+			++debugId;
+			break;
+		case 2:
+			app->player->chopTreeCount = 10;
+			L = app->entities->entities.start;
+			while (L != NULL)
+			{
+				if (L->data->entityType == EntityType::ITEM_TREE)
+					app->entities->entities.Del(L);
+				L = L->next;
+			}
+			++debugId;
+			break;
+		case 3:
+			app->player->beachRubbish = 6;
+			L = app->entities->entities.start;
+			while (L != NULL)
+			{
+				if (L->data->entityType == EntityType::ITEM_RUBBISH)
+					app->entities->entities.Del(L);
+				L = L->next;
+			}
+			++debugId;
+			break;
+		case 4:
+			app->player->turtleKilled = true;
+			L = app->entities->entities.start;
+			while (L != NULL)
+			{
+				if (L->data->entityType == EntityType::TURTLE)
+					app->entities->entities.Del(L);
+				L = L->next;
+			}
+			++debugId;
+			break;
+		case 5:
+			app->player->snailDelivered = true;
+			L = app->entities->entities.start;
+			while (L != NULL)
+			{
+				if (L->data->entityType == EntityType::ITEM_SNAIL)
+					app->entities->entities.Del(L);
+				L = L->next;
+			}
+			++debugId;
+			break;
+		case 6:
+			app->player->monsterKilled = true;
+			L = app->entities->entities.start;
+			while (L != NULL)
+			{
+				if (L->data->entityType == EntityType::MONSTER)
+					app->entities->entities.Del(L);
+				L = L->next;
+			}
+			++debugId;
+		default:
+			break;
+		}
+
 	}
 	//////////////////////////////////////////////////////////////////////
 
@@ -237,6 +368,12 @@ bool QuestManager::CheckObjectivesCompletion()
 
 	if (app->player->turtleKilled == true)
 		CompleteQuest(4);
+
+	if (app->player->snailDelivered == true)
+		CompleteQuest(5);
+
+	if (app->player->monsterKilled == true)
+		CompleteQuest(6);
 
 	return true;
 }
@@ -254,20 +391,3 @@ bool QuestManager::CompleteQuest(int id)
 	}
 	return true;
 }
-
-//////////////////////////////////////////////////////////////////////
-bool QuestManager::CompleteQuestDebug(int id)
-{
-	ListItem<Quest*>* L = questsList.start;
-	while (L != nullptr)
-	{
-		if (id == L->data->id)
-		{
-			L->data->isCompleted = true;
-		}
-		L = L->next;
-	}
-
-	return true;
-}
-//////////////////////////////////////////////////////////////////////

@@ -65,11 +65,24 @@ void Entity::OnCollision(Collider* collider)
 				this->SetToDelete();
 			}
 			break;
+	
+		case Collider::Items::SNAIL:
+			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+			{
+				this->SetToDelete();
+			}
+			break;
+
 		default:
 			break;
 		}
 	}
 	if (this->collider->type == Collider::TURTLE && collider->type == Collider::Type::PLAYER)
+	{
+		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+			this->SetToDelete();
+	}	
+	if (this->collider->type == Collider::MONSTER && collider->type == Collider::Type::PLAYER)
 	{
 		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 			this->SetToDelete();
