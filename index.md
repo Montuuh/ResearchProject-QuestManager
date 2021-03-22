@@ -4,6 +4,7 @@ Hello, my name is David Montufo, [Montuuh](https://github.com/Montuuh) on github
 Before starting to show you raw code, I firstly want to show you some basic concept ideas of quests, or maybe some questions or doubts that you may also have. From my point of view, I think this process is crucial, not only for implementing a Quest Manager, but any type of code. You should have the ideas clear in order to advance properly and fast.
 
 # Concept Discoveries about quests, missions and code structure:
+![Image of quests](https://github.com/Montuuh/ResearchProject-QuestManager/blob/master/docs/images/quests.png?raw=true)
 First of all, I want to comment you my experience doing this research. At the firsts days I started coding this research, I nearly didn't look to any external info in the internet, so I got really lost, and got stuck at the beggining. It was due to this fact that I went back, and make a brainstorming of what are quests, why should they be present in an RPG game, etc. Nowadays, having quests is a key element in videogames, it's such so that for some games, quests are a game pillar for the narrative of it. Thus, wanting to have a well implemented Quest Manager, let's start brainstorming some ideas.
 
 What are quest, and why is it not called as missions. Well, there is a tight difference between them, but generally a mission comes into action when a long process or storyline will be up to the player (GTA or Assassin's Creed as examples), whereas having multiple and rewardful quests that the player chooses which to do (World of Warcraft as example). Having known that, I preferred calling our System a Questie one, as I will be working on an RPG that requires quests rather than missions.
@@ -104,30 +105,3 @@ Assets/GUI/gui.png
 [Video 1](https://youtu.be/c9IPvBdJoiE)
 
 [Video 2](https://youtu.be/k2zC9pg6Eno)
-
-
-# Help & Support (delete when delivery, only for me as Markdown)
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-***
- - **TODO:** Use this to personal ToDo's
-***
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
