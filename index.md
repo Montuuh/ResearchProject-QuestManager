@@ -1,5 +1,5 @@
 # Presentation & Research Project Description
-Hello, my name is David Montufo, [Montuuh](https://github.com/Montuuh) on github. I'm a student, now at the second year, at the Bachelor's degree in Video Game Design and Development in CITM (UPC - Barcelona). This is a personal research project about a basic Quest Manager, under the lecture of Ramón Santamaría, [raysan5](https://github.com/raysan5) on github.
+Hello, my name is David Montufo, [Montuuh](https://github.com/Montuuh) on github. I'm a student, now at the second year, at the Bachelor's degree in Video Game Design and Development in CITM (UPC - Barcelona). This is a personal research project about a basic Quest Manager, under the teaching of Ramón Santamaría, [raysan5](https://github.com/raysan5) on github.
 
 Before starting to show you raw code, I firstly want to show you some basic concept ideas of quests, or maybe some questions or doubts that you may also have. From my point of view, I think this process is crucial, not only for implementing a Quest Manager, but any type of code. You should have the ideas clear in order to advance properly and fast.
 
