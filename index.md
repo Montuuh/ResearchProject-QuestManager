@@ -19,6 +19,7 @@ After knowing that we will be using quests as a base, I researched on the common
  - **Dialogue Quest:** These quests are really simple and not commonly well rewarded. They are just done to make the player go through the different parts of the game. If you are given this quest, you know that where you complete it,  you will have a quest zone to do.
  - **Escort Quest:** These quests involve protecting an NPC while it walks completely randomly, but most commonly on a path / route. From my experience, the majority of time, that NPC will have a 0 iq AI and it will walk all through the enemies basement, and the player will have to handle multiple enemies, struggling while your loved NPC is just walking around, even pulling more and more enemies. As told, a not well-implement AI can make these quests sometimes impossible to complete for the player, as the NPC can behave unexpectedly or in unmanageable ways.
  - **Hybrid Quest:** Some of these quests can be combined to make more complex ones. For example, a quest will require a character to find several items in the world (gathering quest), assemble an specific gun and killing creatures with that weapon (killing quest). It can also involve puzzles and riddles.
+
 ![Quests Types](https://github.com/Montuuh/ResearchProject-QuestManager/blob/master/docs/images/questsTypes2.png?raw=true)
 
 ## Questions & Brainstorming
@@ -46,20 +47,25 @@ For structuring the Quest Manager I found two options, one simpler than another:
 # Complete implementation
 ## Data Structure 
 For storing all the quest data, I used an .xml document. In there we will save some variables like:
+
 ![xml data structure](https://github.com/Montuuh/ResearchProject-QuestManager/blob/master/docs/images/dataStructure.png?raw=true)
 
 I do know, by now we may not need some of that unnecessary variables, but may in the future take more importance, so I decided to keep it like that. After that, we are loading it to the code, storing this data inside. It is easily done with pugi libraries and lists:
+
 ![Loading Xml Document](https://github.com/Montuuh/ResearchProject-QuestManager/blob/master/docs/images/loadingXmlDocument.png?raw=true)
 
 Now that we have the document loaded in the code, we just simply have to save each variable with its corresponding value, and after that, sorting out the lists activeQuests, inactiveQuests and finishedQuests, depending on the status number:
+
 ![Loading Xml Variables](https://github.com/Montuuh/ResearchProject-QuestManager/blob/master/docs/images/loadingXmlDocument2.png?raw=true)
 
 ## Quest Manager Logic
 For the QUest Manager logic, there's a function called at the QuestManager::Update(), named CheckQuestsLogic, which has a simple function by now. It's objective is to change correctly from one list to another if some requisites are completed. For example it has to change automatically a quest from the inactive to the active list if there exists a quest ID in the finished list, that matches a required ID in the inactive list. Another logic that this function controls is when completed a quest (boolean isCompleted == true), it manages to give the corresponding rewards, delete the quest from the active list and move it to the finished one:
+
 ![Quest Manager Logic 2](https://github.com/Montuuh/ResearchProject-QuestManager/blob/master/docs/images/Quest%20Manager%20Logic%202.png?raw=true)
 ![ Ques Manager Logic 1](https://github.com/Montuuh/ResearchProject-QuestManager/blob/master/docs/images/Quest%20Manager%20Logic.png?raw=true)
 
 I found a problem in the chain quest logic. If a new quest needs as requisites, two different quests, as the system I provided just have one requiredID variable, it cannot be done automatically, it has to be a little bit of hardcoded. I will now show you how I did it:
+
 ![Quest Manager Logic 3](https://github.com/Montuuh/ResearchProject-QuestManager/blob/master/docs/images/Quest%20Manager%20Logic%203.png?raw=true)
 
 ## Quest Drawing in the HUD
